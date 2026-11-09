@@ -1,0 +1,32 @@
+{
+  "claim": "The MoEF circular of 1 June 1990 encouraged State Governments to involve village communities in protection and development of degraded forest lands through village institutions that receive usufructs and a share of harvest proceeds.",
+  "question": "Is this Indian Forest Service (IFoS) forestry claim supported by the official CAMPA Act / JFM circular source excerpts provided?",
+  "source_ids": [
+    "campa_official_excerpts",
+    "jfm_official_excerpts"
+  ],
+  "verdict": "grounded",
+  "grounded": 0.9968,
+  "answers_question": 0.46705381291737214,
+  "claims": [
+    {
+      "claim": "The MoEF circular of 1 June 1990 encouraged State Governments to involve village communities in protection and development of degraded forest lands through village institutions that receive usufructs and a share of harvest proceeds.",
+      "kind": "claim",
+      "counted": true,
+      "weight": 1,
+      "supported": 0.9968,
+      "contradicted": 0.0013,
+      "not_stated": 0.0009,
+      "not_a_claim": 0.001,
+      "verdict": "supported",
+      "sources": {
+        "campa_official_excerpts": 0.0009,
+        "jfm_official_excerpts": 0.9991
+      },
+      "source": "jfm_official_excerpts"
+    }
+  ],
+  "credits": 5,
+  "model_ms": 104.097567,
+  "endpoint": "POST /clocked/grounding  (Verify)"
+}

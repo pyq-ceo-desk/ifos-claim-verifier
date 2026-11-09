@@ -1,0 +1,32 @@
+{
+  "claim": "Under the Compensatory Afforestation Fund Act, 2016, the entire corpus is credited only to the National Fund, and State governments receive no share.",
+  "question": "Is this Indian Forest Service (IFoS) forestry claim supported by the official CAMPA Act / JFM circular source excerpts provided?",
+  "source_ids": [
+    "campa_official_excerpts",
+    "jfm_official_excerpts"
+  ],
+  "verdict": "contradicted",
+  "grounded": 0.0025,
+  "answers_question": 0.1137735812133599,
+  "claims": [
+    {
+      "claim": "Under the Compensatory Afforestation Fund Act, 2016, the entire corpus is credited only to the National Fund, and State governments receive no share.",
+      "kind": "claim",
+      "counted": true,
+      "weight": 1,
+      "supported": 0.0025,
+      "contradicted": 0.9956,
+      "not_stated": 0.0009,
+      "not_a_claim": 0.0009,
+      "verdict": "contradicted",
+      "sources": {
+        "campa_official_excerpts": 0.6006,
+        "jfm_official_excerpts": 0.3994
+      },
+      "source": null
+    }
+  ],
+  "credits": 5,
+  "model_ms": 103.269088,
+  "endpoint": "POST /clocked/grounding  (Verify)"
+}

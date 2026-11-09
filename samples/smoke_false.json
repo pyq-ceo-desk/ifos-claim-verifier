@@ -1,0 +1,42 @@
+{
+  "label": "false",
+  "claim": "Under the Compensatory Afforestation Fund Act, 2016, the entire corpus is credited only to the National Fund, and State governments receive no share.",
+  "verdict": "contradicted",
+  "grounded": 0.0049,
+  "answers_question": 0.1445241603250923,
+  "claims": [
+    {
+      "claim": "Under the Compensatory Afforestation Fund Act, 2016, the entire corpus is credited only to the National Fund, and State governments receive no share.",
+      "kind": "claim",
+      "counted": true,
+      "weight": 1,
+      "supported": 0.0049,
+      "contradicted": 0.9924,
+      "not_stated": 0.0013,
+      "not_a_claim": 0.0013,
+      "verdict": "contradicted",
+      "sources": {
+        "jfm_official_excerpts": 0.1654,
+        "campa_official_excerpts": 0.8346
+      },
+      "source": null
+    }
+  ],
+  "credits": 5,
+  "model_ms": 105.621217,
+  "keys": [
+    "answers_question",
+    "claims",
+    "documents",
+    "grounded",
+    "instructions_used",
+    "model",
+    "not_claims",
+    "threshold",
+    "timing",
+    "ungrounded",
+    "unsupported_claims",
+    "verdict",
+    "weakest_claim"
+  ]
+}

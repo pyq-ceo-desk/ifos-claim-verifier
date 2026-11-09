@@ -1,0 +1,39 @@
+{
+  "claim": "Under the Compensatory Afforestation Fund Act, 2016, ninety percent of the amounts collected are credited to the State Compensatory Afforestation Fund and ten percent to the National Fund.",
+  "question": "Is this Indian Forest Service (IFoS) forestry claim supported by the official CAMPA Act / JFM circular source excerpts provided?",
+  "source_ids": [
+    "campa_official_excerpts",
+    "jfm_official_excerpts"
+  ],
+  "verdict": "grounded",
+  "grounded": 0.9973,
+  "answers_question": 0.5047572764258644,
+  "claims": [
+    {
+      "claim": "Under the Compensatory Afforestation Fund Act, 2016, ninety percent of the amounts collected are credited to the State Compensatory Afforestation Fund and ten percent to the National Fund.",
+      "kind": "claim",
+      "counted": true,
+      "weight": 1,
+      "supported": 0.9973,
+      "contradicted": 0.001,
+      "not_stated": 0.0007,
+      "not_a_claim": 0.0009,
+      "verdict": "supported",
+      "sources": {
+        "campa_official_excerpts": 0.9987,
+        "jfm_official_excerpts": 0.0013
+      },
+      "source": "campa_official_excerpts",
+      "evidence": {
+        "document": "campa_official_excerpts",
+        "quote": "Of the amounts collected, 10% is credited to the National Fund and 90% to the State Fund of the State concerned.",
+        "start": 340,
+        "end": 452,
+        "confidence": 1
+      }
+    }
+  ],
+  "credits": 7,
+  "model_ms": 174.057789,
+  "endpoint": "POST /clocked/grounding  (Verify)"
+}

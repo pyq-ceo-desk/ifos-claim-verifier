@@ -1,0 +1,49 @@
+{
+  "label": "true",
+  "claim": "Under the Compensatory Afforestation Fund Act, 2016, ninety percent of the amounts collected are credited to the State Compensatory Afforestation Fund and ten percent to the National Fund.",
+  "verdict": "grounded",
+  "grounded": 0.997,
+  "answers_question": 0.22668736040799767,
+  "claims": [
+    {
+      "claim": "Under the Compensatory Afforestation Fund Act, 2016, ninety percent of the amounts collected are credited to the State Compensatory Afforestation Fund and ten percent to the National Fund.",
+      "kind": "claim",
+      "counted": true,
+      "weight": 1,
+      "supported": 0.997,
+      "contradicted": 0.0012,
+      "not_stated": 0.0008,
+      "not_a_claim": 0.0009,
+      "verdict": "supported",
+      "sources": {
+        "jfm_official_excerpts": 0.0008,
+        "campa_official_excerpts": 0.9992
+      },
+      "source": "campa_official_excerpts",
+      "evidence": {
+        "document": "campa_official_excerpts",
+        "quote": "Of the amounts collected, 10% is credited to the National Fund and 90% to the State Fund of the State concerned.",
+        "start": 340,
+        "end": 452,
+        "confidence": 1
+      }
+    }
+  ],
+  "credits": 8,
+  "model_ms": 189.867046,
+  "keys": [
+    "answers_question",
+    "claims",
+    "documents",
+    "grounded",
+    "instructions_used",
+    "model",
+    "not_claims",
+    "threshold",
+    "timing",
+    "ungrounded",
+    "unsupported_claims",
+    "verdict",
+    "weakest_claim"
+  ]
+}
