@@ -50,8 +50,9 @@ These are short public-law summaries for the demo. Swap in full India Code / FAO
 
 | Claim | Expected | Observed |
 |---|---|---|
-| 90% State / 10% National under CAF Act 2016 | grounded | `verdict=grounded`, `grounded≈0.997` |
-| Entire corpus only to National Fund | contradicted | `verdict=contradicted`, `grounded≈0.005` |
+| 90% State / 10% National under CAF Act 2016 | grounded | `verdict=grounded`, `grounded=0.9973` |
+| Entire corpus only to National Fund | contradicted | `verdict=contradicted`, `grounded=0.0025` |
+| MoEF 1 June 1990 JFM village institutions / usufructs | grounded | `verdict=grounded`, `grounded=0.9968` |
 
 ## Challenge fit
 

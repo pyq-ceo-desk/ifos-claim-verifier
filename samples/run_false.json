@@ -27,6 +27,6 @@
     }
   ],
   "credits": 5,
-  "model_ms": 103.269088,
+  "model_ms": 106.438466,
   "endpoint": "POST /clocked/grounding  (Verify)"
 }

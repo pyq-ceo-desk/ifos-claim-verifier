@@ -1,0 +1,3 @@
+[true] verdict=grounded grounded=0.9973 credits=3
+[false] verdict=contradicted grounded=0.0025 credits=5
+[jfm_true] verdict=grounded grounded=0.9968 credits=5

@@ -51,12 +51,16 @@ def verify(claim: str, question: str | None = None) -> dict:
         "Is this Indian Forest Service (IFoS) forestry claim supported by the "
         "official CAMPA Act / JFM circular source excerpts provided?"
     )
+    import uuid
     client = Clocked()
     result = client.grounding(
         documents=docs,
         question=q,
         answer=claim,
         evidence="all",
+        idempotency_key=str(uuid.uuid4()),
+        timeout=60,
+        max_attempts=2,
     )
     # normalize for CLI consumers
     out = {
