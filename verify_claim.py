@@ -78,6 +78,43 @@ def verify(claim: str, question: str | None = None) -> dict:
     return out
 
 
+
+def maybe_gemini_rewrite(claim: str, verdict: str) -> str | None:
+    """Optional stretch: if gemini.env exists and claim failed, suggest a grounded rewrite.
+    Never required for the Clocked challenge entry.
+    """
+    env = Path("/workspace/secrets/gemini.env")
+    if not env.exists():
+        return None
+    key = None
+    for line in env.read_text().splitlines():
+        if line.startswith("GEMINI_API_KEY="):
+            key = line.split("=", 1)[1].strip().strip('"').strip("'")
+    if not key:
+        return None
+    if str(verdict).lower() in ("grounded", "supported"):
+        return None
+    import json, urllib.request
+    prompt = (
+        "Rewrite this IFoS forestry claim so it is accurate under the Compensatory "
+        "Afforestation Fund Act, 2016 (10% National / 90% State) or the MoEF 1 June 1990 "
+        "JFM circular. Reply with only the rewritten claim.\n\nClaim: " + claim
+    )
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro-latest:generateContent?key={key}"
+    body = json.dumps({
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"maxOutputTokens": 200, "temperature": 0.2},
+    }).encode()
+    req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"}, method="POST")
+    try:
+        with urllib.request.urlopen(req, timeout=45) as resp:
+            d = json.loads(resp.read().decode())
+        parts = (((d.get("candidates") or [{}])[0].get("content") or {}).get("parts") or [])
+        return "".join(x.get("text") or "" for x in parts).strip() or None
+    except Exception:
+        return None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Verify an IFoS claim with Clocked grounding")
     ap.add_argument("claim", nargs="?", help="Claim text to verify")
@@ -113,6 +150,10 @@ def main() -> int:
             path = ROOT / "samples" / f"run_{label}.json"
             path.write_text(json.dumps(out, indent=2, default=str)[:12000])
             print(f"[{label}] verdict={out['verdict']} grounded={out['grounded']} credits={out['credits']}")
+            if label.startswith("false"):
+                sug = maybe_gemini_rewrite(claim, str(out.get("verdict") or ""))
+                if sug:
+                    print(f"[{label}] gemini_rewrite_suggestion={sug[:240]}")
             if label.startswith("true") or label.startswith("jfm"):
                 if str(out.get("verdict")).lower() not in ("grounded", "supported", "yes"):
                     # accept high grounded score
