@@ -18,8 +18,12 @@ Optional stretch (not required for entry): Compare two State CAMPA plans, or Rer
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-export CLOCKED_API_KEY=clk_live_…   # from https://clocked.rezolve.ai account page
+export CLOCKED_API_KEY='<your Clocked API key>'   # from https://clocked.rezolve.ai/account
 ```
+
+Alternatively, put `CLOCKED_API_KEY=...` in a `.env` file in this directory. That file is gitignored and must never be committed. The CLI and web UI read the key from the environment (or `.env`); they never print it.
+
+Optional stretch only: export `GEMINI_API_KEY` if you want a rewrite suggestion for a failed claim. This is not required for the challenge entry.
 
 ## CLI
 

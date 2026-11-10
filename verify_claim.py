@@ -5,7 +5,7 @@ Paste an IFoS forestry claim; Clocked checks it against curated official
 CAMPA / JFM source excerpts. The verdict changes what the CLI prints and
 exits with: grounded → OK, contradicted/ungrounded → FAIL.
 
-Requires CLOCKED_API_KEY (source /workspace/secrets/clocked.env).
+Requires the CLOCKED_API_KEY environment variable (or a local gitignored .env).
 Never prints the key.
 """
 from __future__ import annotations
@@ -21,9 +21,13 @@ SOURCES = ROOT / "sources"
 
 
 def load_env() -> None:
-    env = Path("/workspace/secrets/clocked.env")
-    if env.exists():
-        for line in env.read_text().splitlines():
+    """Load key material from the process environment, or from a local .env file.
+
+    `.env` is optional, must stay out of git, and is only read from this directory.
+    """
+    env_file = ROOT / ".env"
+    if env_file.exists():
+        for line in env_file.read_text().splitlines():
             line = line.strip()
             if not line or line.startswith("#") or "=" not in line:
                 continue
@@ -80,16 +84,10 @@ def verify(claim: str, question: str | None = None) -> dict:
 
 
 def maybe_gemini_rewrite(claim: str, verdict: str) -> str | None:
-    """Optional stretch: if gemini.env exists and claim failed, suggest a grounded rewrite.
+    """Optional stretch: if GEMINI_API_KEY is set and the claim failed, suggest a rewrite.
     Never required for the Clocked challenge entry.
     """
-    env = Path("/workspace/secrets/gemini.env")
-    if not env.exists():
-        return None
-    key = None
-    for line in env.read_text().splitlines():
-        if line.startswith("GEMINI_API_KEY="):
-            key = line.split("=", 1)[1].strip().strip('"').strip("'")
+    key = os.environ.get("GEMINI_API_KEY")
     if not key:
         return None
     if str(verdict).lower() in ("grounded", "supported"):

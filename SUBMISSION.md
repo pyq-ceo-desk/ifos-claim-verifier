@@ -1,4 +1,4 @@
-# Clocked Build Challenge — submission draft (DO NOT SUBMIT yet)
+# Clocked Build Challenge — submission draft
 
 **Form URL:** https://clocked.rezolve.ai/challenge  
 **Deadline:** 10 Nov 2026, 11:59 p.m. Eastern Time ≈ **11 Nov 2026, 10:29 a.m. IST**
@@ -33,14 +33,14 @@ Local web UI: `python app.py` → http://127.0.0.1:8787
 
 **Category:** Best Use of Verify, Compare, or Rerank ($400); also eligible Best Overall App ($600)
 
-**Team:** Akshay Wagh / CEO desk bot accounts as needed — confirm email + GitHub handle before submit
+**Team:** name Akshay Wagh · email akshaypyqdesk@gmail.com · GitHub pyq-ceo-desk
 
 ## Setup (free; no card)
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-# export CLOCKED_API_KEY from account page (or source secrets/clocked.env on desk)
+export CLOCKED_API_KEY='<your Clocked API key>'   # or a local gitignored .env
 python verify_claim.py --samples
 python app.py
 ```
@@ -65,4 +65,4 @@ python app.py
 
 - Compare two State CAMPA plans via Clocked Compare  
 - Rerank ISFR paragraphs for a GK answer  
-- Gemini rewrite of failed claims if `gemini.env` appears
+- Gemini rewrite of failed claims if `GEMINI_API_KEY` is set
