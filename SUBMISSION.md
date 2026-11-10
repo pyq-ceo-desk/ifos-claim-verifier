@@ -29,6 +29,8 @@ Run log: `samples/run_log_20261110-0150.txt`
 
 Local web UI: `python app.py` → http://127.0.0.1:8787
 
+**Public demo (video):** https://github.com/pyq-ceo-desk/ifos-claim-verifier/releases/download/demo-v1/ifos-claim-verifier-demo.mp4
+
 **Public repository:** https://github.com/pyq-ceo-desk/ifos-claim-verifier
 
 **Category:** Best Use of Verify, Compare, or Rerank ($400); also eligible Best Overall App ($600)

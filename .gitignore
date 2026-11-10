@@ -5,3 +5,7 @@ __pycache__/
 *.pyc
 *.pyo
 secrets/
+.dev.vars
+.wrangler/
+worker/.wrangler/
+worker/node_modules/

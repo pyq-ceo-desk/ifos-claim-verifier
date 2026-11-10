@@ -1,5 +1,11 @@
 # IFoS Claim Verifier (Clocked Build Challenge demo)
 
+**Public demo (short video of the CLI and web UI in use):**  
+https://github.com/pyq-ceo-desk/ifos-claim-verifier/releases/download/demo-v1/ifos-claim-verifier-demo.mp4
+
+The same file is also in the repository at `demo/ifos-claim-verifier-demo.mp4`. This recording stays available through judging (18 Nov 2026).
+
+
 **What it is.** A small working app that takes an Indian Forest Service (IFoS) forestry claim about **CAMPA** or **Joint Forest Management (JFM)** and checks it against curated official source excerpts using Clocked **Verify** (`POST /clocked/grounding`).
 
 **Why Clocked matters here.** The grounding `verdict` / `grounded` score is not decorative: the CLI exit code and the web UI pass/fail banner change based on that output. That is the “meaningful use” the challenge asks for.
@@ -58,11 +64,22 @@ These are short public-law summaries for the demo. Swap in full India Code / FAO
 | Entire corpus only to National Fund | contradicted | `verdict=contradicted`, `grounded=0.0025` |
 | MoEF 1 June 1990 JFM village institutions / usufructs | grounded | `verdict=grounded`, `grounded=0.9968` |
 
+Live retest for the demo video (10 Nov 2026, 10:09 AM IST): true claim `verdict=grounded`, `grounded=0.9973`, PASS; false claim `verdict=contradicted`, `grounded=0.0025`, FAIL.
+
 ## Challenge fit
 
 - Group award target: **Best Use of Verify, Compare, or Rerank** ($400)
 - Also eligible for Best Overall App ($600)
 - Built during challenge window; uses free 20k credits (`CLOCKEDHACKATHON`)
+
+
+## Public Worker (optional deploy)
+
+`worker/` is a Cloudflare Worker that serves the same claim form and calls Clocked Verify **server-side**. The API key must be set with `wrangler secret put CLOCKED_API_KEY` and must never be committed. The Worker rate-limits to 30 verifications per IP per day and 100 per day globally.
+
+A live workers.dev URL is not published yet. The Worker source is in the repo and can be deployed on the Workers free tier with `wrangler secret put CLOCKED_API_KEY`. Until then, the public demo URL is the video above.
+
+See `worker/README.md` for deploy commands.
 
 ## License
 
